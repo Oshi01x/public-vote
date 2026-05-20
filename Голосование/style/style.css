@@ -1,0 +1,220 @@
+/* Базовые настройки */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: rgba(57, 128, 140, 0.964);
+    color: #8a8888;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #e8e2e2 ;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* СТИЛИ НАВИГАЦИИ (МЕНЮ) */
+.main-nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    background: #e1d9d9;
+    padding: 10px;
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #555;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background: #e9ecef;
+    color: #0f6096;
+}
+
+.nav-link.active {
+    background: #0f6096;
+    color: white;
+}
+
+/* Шапка */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+}
+
+h1 { color: #2c3e50; margin-bottom: 10px; }
+.subtitle { color: #7f8c8d; font-size: 1.1em; }
+
+/* Текстовая страница About */
+.content-text h2 { margin: 20px 0 10px; color: #2c3e50; }
+.content-text p { margin-bottom: 15px; color: #555; }
+.btn-link {
+    display: inline-block;
+    background: #0f6096;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.btn-link:hover { background: #0f6096; }
+
+.voting-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px; /* Increased gap slightly */
+    margin-bottom: 25px;
+}
+
+.card {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px; /* Slightly smoother corners */
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    background-color: white; /* Ensure background is solid */
+    position: relative; /* For absolutely positioned elements inside */
+    overflow: hidden; /* Important for rounding images inside */
+}
+
+.card:hover {
+    border-color: #0f6096;
+    background-color: #fcfdfe;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card.selected {
+    border-color: #2ecc71;
+    background-color: #f1fbf5;
+}
+
+.uni-img-wrapper {
+    width: 80px; 
+    height: 80px;
+    flex-shrink: 0; /* Important: prevents the area from shrinking on small screens */
+    margin-right: 20px;
+    border-radius: 10px; /* Rounds the image container itself */
+    overflow: hidden; /* Important for rounding the real image inside */
+    background-color: #ecf0f1; /* LIGHT GRAY BACKGROUND = The Placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d0d7da; /* Add a thin light border around image */
+}
+
+/* 2. Styling the REAL IMAGE itself when you add it */
+.uni-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Important! Prevents the picture from stretching, automatically crops to fit square */
+    display: block; /* Removes any browser default margins/paddings on images */
+}
+
+/* 3. Style for when the IMAGE IS MISSING (the error state) */
+.uni-logo[src*="placeholders"] {
+    opacity: 0; /* Make the placeholder gray and the image invisible */
+}
+.radio-indicator {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #bdc3c7;
+    border-radius: 50%;
+    margin-right: 15px; /* Spacing between indicator and text info */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card.selected .radio-indicator {
+    border-color: #2ecc71;
+    background-color: #2ecc71;
+}
+
+.card.selected .radio-indicator::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* 5. Styling the text information (card-info) */
+.card-info {
+    flex-grow: 1; /* Text fills the remaining space */
+}
+
+.card-info h3 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 1.15em;
+}
+
+.card-info p {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+/* Handle layout on small mobile screens */
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column; /* Stack image, indicator, and text vertically */
+        align-items: flex-start; /* Align everything to the left */
+        padding: 15px;
+    }
+    
+    .uni-img-wrapper {
+        width: 60px; /* Make the picture smaller on mobile */
+        height: 60px;
+        margin-right: 0;
+        margin-bottom: 15px; /* Spacing below the picture */
+    }
+    
+    .radio-indicator {
+        position: absolute; /* Position the dot absolutely on mobile */
+        top: 15px;
+        right: 15px;
+        margin-right: 0;
+    }
+}
+/* Формы и кнопки */
+.btn-submit {
+    display: block; width: 100%; background-color: #0f6096; color: white;
+    border: none; padding: 15px; font-size: 1.1em; font-weight: bold; border-radius: 8px; cursor: pointer;
+}
+.btn-submit:hover { background-color: #0f6096; }
+.btn-submit:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+
+.alert { display: none; background-color: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center; font-weight: bold; }
+.security-note { margin-top: 25px; font-size: 0.85em; color: #95a5a6; text-align: center; }
+
+/* Стили формы контактов */
+.contact-form { display: flex; flex-direction: column; gap: 15px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group label { font-weight: bold; color: #2c3e50; }
+.form-group input, .form-group textarea {
+    padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 1em;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: #0f6096; outline: none; }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Живое Голосование - Выбор Университета</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Главное меню -->
+    <nav class="main-nav">
+        <a href="./index.html" class="nav-link">О проекте</a>
+        <a href="./voting.html" class="nav-link active">Голосование</a>
+        <a href="./contacts.html" class="nav-link">Контакты</a>
+    </nav>
+
+    <header>
+        <h1>Живое Голосование</h1>
+        <p class="subtitle">Система: Мажоритарная. Выберите лучший университет.</p>
+    </header>
+
+    <main>
+        <div class="voting-cards">
+            
+            <!-- Карточка 1: ALT University -->
+            <div class="card" data-university="ALT University">
+                
+                <!-- МЕСТО ДЛЯ ТВОЕЙ КАРТИНКИ -->
+                <!-- Замени "placeholder_alt.png" на название своего файла, например "alt.jpg" -->
+                <div class="uni-img-wrapper">
+                    <img src="./style/alt.png" alt="Логотип ALT University" class="uni-logo">
+                </div>
+
+                <div class="radio-indicator"></div>
+                <div class="card-info">
+                    <h3>ALT University (Академия логистики и транспорта)</h3>
+                    <p>Лидер в сфере цифровой логистики, транспорта и телекоммуникаций.</p>
+                </div>
+            </div>
+
+            <!-- Карточка 2: КазНУ -->
+            <div class="card" data-university="КазНУ им. аль-Фараби">
+                
+                <!-- МЕСТО ДЛЯ ТВОЕЙ КАРТИНКИ -->
+                <!-- Замени "placeholder_kaznu.png" на название своего файла -->
+                <div class="uni-img-wrapper">
+                    <img src="./style/utverzhden-novyj-logotip-kaznu.jpg" alt="Логотип КазНУ" class="uni-logo">
+                </div>
+
+                <div class="radio-indicator"></div>
+                <div class="card-info">
+                    <h3>КазНУ им. аль-Фараби</h3>
+                    <p>Классическое многопрофильное образование и сильная научная база.</p>
+                </div>
+            </div>
+
+            <!-- Карточка 3: МУИТ -->
+            <div class="card" data-university="МУИТ">
+                
+                <!-- МЕСТО ДЛЯ ТВОЕЙ КАРТИНКИ -->
+                <!-- Замени "placeholder_muit.png" на название своего файла -->
+                <div class="uni-img-wrapper">
+                    <img src="./style/iitu_kz_logo.jpg" alt="Логотип МУИТ" class="uni-logo">
+                </div>
+
+                <div class="radio-indicator"></div>
+                <div class="card-info">
+                    <h3>МУИТ (Международный IT Университет)</h3>
+                    <p>Фокус на передовых информационных технологиях и программировании.</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <button id="submitBtn" class="btn-submit" disabled>Отправить голос</button>
+
+        <div id="successAlert" class="alert">
+            Спасибо! Ваш голос за <span id="votedFor"></span> успешно засчитан.
+        </div>
+    </main>
+
+    <footer class="security-note">
+        🛡️ Повторное голосование с этого устройства заблокировано.
+    </footer>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
